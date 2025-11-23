@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(CalculatorApp());
+
+class CalculatorApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Calculator());
+  }
+}
+
+class Calculator extends StatefulWidget {
+  @override
+  _CalculatorState createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  final num1 = TextEditingController();
+  final num2 = TextEditingController();
+
+  double result = 0;
+
+  void addNumbers() {
+    setState(() {
+      result = double.parse(num1.text) + double.parse(num2.text);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Simple Calculator")),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            TextField(
+              controller: num1,
+              decoration: InputDecoration(labelText: "Enter first number"),
+              keyboardType: TextInputType.number,
+            ),
+            TextField(
+              controller: num2,
+              decoration: InputDecoration(labelText: "Enter second number"),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: addNumbers,
+              child: Text("Add"),
+            ),
+            SizedBox(height: 20),
+            Text(
+              "Result: $result",
+              style: TextStyle(fontSize: 24),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
