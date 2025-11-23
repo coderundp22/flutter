@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(NavigationApp());
+
+class NavigationApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: FirstScreen());
+  }
+}
+
+class FirstScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("First Screen")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondScreen()),
+            );
+          },
+          child:Text("Go to Second Screen"), // Completed this line
+        ),
+      ),
+    );
+  }
+}
+
+// Definition of SecondScreen widget, which was missing
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Second Screen")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigator.pop removes the current route from the stack,
+            // effectively going back to the previous screen.
+            Navigator.pop(context);
+          },
+          child: Text("Go back to First Screen"),
+        ),
+      ),
+    );
+  }
+}
