@@ -40,7 +40,7 @@ class ResponsiveHomePage extends StatelessWidget {
     );
   }
 
-  // --- MOBILE LAYOUT ---
+  
   Widget _buildMobileLayout() {
     return Center(
       child: Column(
@@ -59,7 +59,7 @@ class ResponsiveHomePage extends StatelessWidget {
     );
   }
 
-  // --- TABLET LAYOUT ---
+
   Widget _buildTabletLayout() {
     return Center(
       child: Row(
@@ -83,7 +83,7 @@ class ResponsiveHomePage extends StatelessWidget {
     );
   }
 
-  // --- DESKTOP LAYOUT ---
+ 
   Widget _buildDesktopLayout() {
     return Center(
       child: Row(
